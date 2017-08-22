@@ -12,8 +12,10 @@
     app.use(helmet());
     app.use(bodyparser.urlencoded({ extended: true }));
     app.use(bodyparser.json());
-    app.use(cookies.express());
+    app.use(cookieParser());
     app.use('/scripts', express.static(path.join(__dirname, 'clientScripts')));
     app.use('/css', express.static(path.join(__dirname, 'node_modules/font-awesome/css')));
     app.use('/fonts', express.static(path.join(__dirname, 'node_modules/font-awesome/fonts')));
+
+
 })();
