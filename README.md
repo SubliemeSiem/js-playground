@@ -11,6 +11,8 @@ A project to play around with *JavaScript* in *Node JS*. Will feature various co
 - [ ] json models
 - [ ] js DOM selectors without jQuery
 - [ ] mongodb
+- [ ] promises
+- [ ] AJAX calls (no jQuery)
 
 #Running the code
 
