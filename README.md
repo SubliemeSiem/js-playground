@@ -3,14 +3,14 @@
 A project to play around with *JavaScript* in *Node JS*. Will feature various common design patterns and libraries, and shows how you can host client js files to the browser.
 
 #Contents:
-[x] responsive css
-[x] express
-[x] using express static folders to host client js files
-[] using express routers to route http requests
-[] html views
-[] json models
-[] js DOM selectors without jQuery
-[] mongodb
+- [x] responsive css
+- [x] express
+- [x] using express static folders to host client js files
+- [ ] using express routers to route http requests
+- [ ] html views
+- [ ] json models
+- [ ] js DOM selectors without jQuery
+- [ ] mongodb
 
 #Running the code
 
