@@ -10,9 +10,8 @@
     const cookieParser = require('cookie-parser'); // for using cookies in express
 
     // initialize own modules (notice the './' in the path)
-    // routers:
-    const indexRouter = require('./routers/index');
-
+    const indexRouter = require('./routers/index')(__dirname);
+    
     // initialize variables
     const app = express(); // initialize express
 
@@ -32,7 +31,6 @@
 
     // get the port given by the user (is undefined if not present)
     const portArgument = parseInt(process.argv[2]);
-    console.log(portArgument);
     // if we have an integer input, use the absolute value, 
     // otherwise default to port 3000
     const port = Number.isNaN(portArgument) ? 3000 : Math.abs(portArgument); 
