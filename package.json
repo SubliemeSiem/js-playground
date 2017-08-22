@@ -1,0 +1,19 @@
+{
+  "name": "js-playground",
+  "version": "1.0.0",
+  "description": "A place to play with JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SubliemeSiem/js-playground.git"
+  },
+  "author": "Simon Peeters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SubliemeSiem/js-playground/issues"
+  },
+  "homepage": "https://github.com/SubliemeSiem/js-playground#readme"
+}
