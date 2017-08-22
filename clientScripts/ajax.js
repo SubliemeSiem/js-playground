@@ -1,4 +1,5 @@
 const ajax = (function() {
+    "use strict";
     return {
         get: function(url, data) {
             return new Promise(function(resolve, reject) {

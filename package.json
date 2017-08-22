@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/SubliemeSiem/js-playground/issues"
   },
-  "homepage": "https://github.com/SubliemeSiem/js-playground#readme"
+  "homepage": "https://github.com/SubliemeSiem/js-playground#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "font-awesome": "^4.7.0",
+    "helmet": "^3.8.1",
+    "path": "^0.12.7"
+  }
 }
