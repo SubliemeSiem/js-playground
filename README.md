@@ -1,8 +1,8 @@
-## js-playground
+# js-playground
 
 A project to play around with *JavaScript* in *Node.js*. Will feature various common design patterns and libraries, and shows how you can host js, css and html files using Node.js.
 
-# Contents:
+## Contents:
 - [x] express (./index.js:5-40, ./routers/)
 - [x] using middleware (./index:15-22)
 - [ ] your own middleware
@@ -31,7 +31,7 @@ A project to play around with *JavaScript* in *Node.js*. Will feature various co
 - [ ] error handling
 - [ ] logging
 
-# Running the code
+## Running the code
 
 You can run the following commands in your shell to get and run the code:
 ```bash
