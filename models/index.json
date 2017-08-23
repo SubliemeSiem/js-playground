@@ -1,4 +1,3 @@
-[{
-  "key": "{{title}}",
-  "value": "MVC example"
-}]
+{
+  "title": "MVC example"
+}
