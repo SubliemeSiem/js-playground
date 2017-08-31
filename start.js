@@ -10,7 +10,7 @@
     const cookieParser = require('cookie-parser'); // for using cookies in express
 
     // initialize own modules (notice the './' in the path)
-    const indexRouter = require('./routers/index')(__dirname);
+    const indexRouter = require('./routers/pages/index')(__dirname);
 
     // initialize variables
     const app = express(); // initialize express
@@ -29,6 +29,10 @@
 
     // use our routers for their respective paths
     app.use('/', indexRouter);
+
+    app.get('/Test', function(req, res) {
+        res.status(200).end(JSON.stringify({ html: "<h2>Succes!</h2>", js: "", css: "" }));
+    })
 
     // get the port given by the user (is undefined if not present)
     const portArgument = parseInt(process.argv[2]);

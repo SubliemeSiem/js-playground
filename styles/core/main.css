@@ -1,0 +1,59 @@
+.header {
+    height: 3rem;
+    border: 1px solid #b4b4b4;
+}
+
+sidebar,
+.content {
+    height: calc(100% - 3rem);
+}
+
+.sidebar.left {
+    padding: 1rem 1rem 1rem 0;
+}
+
+.sidebar.right {
+    padding: 1rem 0 1rem 1rem;
+}
+
+.content {
+    padding: 1rem;
+}
+
+.sidebar * {
+    color: #fefefe;
+    text-decoration: none;
+}
+
+.sidebar div {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    padding: .5rem;
+    background: #2a2a2a;
+    background-image: -webkit-linear-gradient(top, #3a3a3a, #232323);
+    background-image: linear-gradient(top, #3a3a3a, #232323);
+    cursor: pointer;
+}
+
+.sidebar div:not(.active):hover {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    background: #2a2a2a;
+    background-image: -webkit-linear-gradient(top, #4e4e4e, #232323);
+    background-image: linear-gradient(top, #4e4e4e, #232323);
+}
+
+.sidebar div.active,
+.sidebar div:not(.active):active {
+    background: #1d1d1d;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.left div {
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.sidebar.right div {
+    border-radius: .5rem 0 0 .5rem;
+}

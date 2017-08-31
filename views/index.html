@@ -1,14 +1,25 @@
 <html>
-    <head>
-        <title>{{title}}</title>
-        {{css}}
-        <script src="scripts/ajax.js"></script>
-    </head>
-    <body>
-        <div class="row">
-            <div class="col-3 col-m-3">...</div>
-            <div class="col-6 col-m-9">...</div>
-            <div class="col-3 col-m-12">...</div>
+
+<head>
+    <title>{{title}}</title>
+    {{css}} {{scripts}}
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-12 col-m-12 header">...</div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-m-3 left sidebar">
+            {{page links}}
         </div>
-    </body>
+        <div class="col-6 col-m-6 content" id="main-content">
+
+        </div>
+        <div class="col-3 col-m-3 right sidebar">
+            {{test objects}}
+        </div>
+    </div>
+</body>
+
 </html>

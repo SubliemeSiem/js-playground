@@ -1,6 +1,30 @@
 {
-  "viewObjects": {
-    "title": "js playground",
-    "css": "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\">\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/font-awesome.min.css\">\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/responsive.css\">"
-  }
+    "viewObjects": {
+        "title": {
+            "values": ["js playground"],
+            "before": "",
+            "after": ""
+        },
+        "css": {
+            "values": ["css/reset.css", "css/font-awesome.min.css", "css/responsive.css", "css/main.css"],
+            "before": "        <link rel=\"stylesheet\" type=\"text/css\" href=\"",
+            "after": "\">\n"
+        },
+        "scripts": {
+            "values": ["scripts/ajax.js", "scripts/main.js"],
+            "before": "<script src=\"",
+            "after": "\"></script>"
+        },
+        "page links": {
+            "values": ["Test"],
+            "before": "<div onclick=\"openPage('",
+            "between": "');\">",
+            "after": "</div>"
+        },
+        "test objects": {
+            "values": ["test", "test2"],
+            "before": "<div>",
+            "after": "</div>"
+        }
+    }
 }
