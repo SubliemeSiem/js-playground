@@ -3,7 +3,9 @@
 A project to play around with *JavaScript* in *Node.js*. Will feature various common design patterns and libraries, and shows how you can host js, css and html files using Node.js.
 
 ## Contents:
-- [x] express ([set up](index.js):5-40, [routers](routers/))
+- [x] express 
+  - [x] [set up](index.js)
+  - [x] [routers](routers/))
 - [x] [using middleware](index.js)
 - [ ] your own middleware
   - [ ] creating it
@@ -16,19 +18,24 @@ A project to play around with *JavaScript* in *Node.js*. Will feature various co
 - [x] [using express static folders to host client js files](index.js)
 - [ ] dynamically create a script block and serve it through a route as a file
 - [ ] using express routers to route http requests:
-  - [x] get
+  - [x] [get](routers/index.js)
   - [ ] post
 - [ ] combining AJAX calls with express routing
   - [ ] get
+    - [ ] client-side call
+    - [ ] server-side route
   - [ ] post
-- [x] responsive css (stylesheet only)
-- [ ] HTML views using responsive CSS
+    - [ ] client-side call
+    - [ ] server-side route
+- [ ] responsive css
+  - [x] [stylesheet](styles/core/responsive.css)
+  - [ ] HTML views using responsive CSS
 - [ ] JSON models
 - [ ] mongodb
 - [ ] Promises
   - [x] [create](clientScripts/ajax.js)
   - [ ] use
-- [x] map (./routers/index:4)
+- [x] [map](routers/index.js)
 - [ ] reduce
 - [ ] error handling
 - [ ] logging
