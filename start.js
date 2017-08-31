@@ -2,16 +2,16 @@
     "use strict";
 
     // initialize npm modules (no need for the .js extension)
-    const express = require('express');            // for routing
-    const helmet = require('helmet');              // for more secure http headers
-    const path = require('path');                  // for joining path strings
-    const bodyparser = require('body-parser');     // for parsing the http requests
-    const regex = require('regex-email');          // for checking if an e-mail address is valid
+    const express = require('express'); // for routing
+    const helmet = require('helmet'); // for more secure http headers
+    const path = require('path'); // for joining path strings
+    const bodyparser = require('body-parser'); // for parsing the http requests
+    const regex = require('regex-email'); // for checking if an e-mail address is valid
     const cookieParser = require('cookie-parser'); // for using cookies in express
 
     // initialize own modules (notice the './' in the path)
     const indexRouter = require('./routers/index')(__dirname);
-    
+
     // initialize variables
     const app = express(); // initialize express
 
@@ -34,9 +34,10 @@
     const portArgument = parseInt(process.argv[2]);
     // if we have an integer input, use the absolute value, 
     // otherwise default to port 3000
-    const port = Number.isNaN(portArgument) ? 4000 : Math.abs(portArgument); 
+    const port = Number.isNaN(portArgument) ? 4000 : Math.abs(portArgument);
     console.log(`Listening on port: ${port}`);
-    console.log("Press 'ctrl + c' to quit")
+    console.log(`Go to http://localhost:${port} to see the result.`);
+    console.log("Press 'ctrl + c' to quit.");
     // let express listen to the port
     app.listen(port);
 })();
