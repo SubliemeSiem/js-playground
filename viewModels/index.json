@@ -1,29 +1,27 @@
 {
     "viewObjects": {
         "title": {
-            "values": ["js playground"],
-            "before": "",
-            "after": ""
+            "values": ["js playground"]
         },
         "css": {
             "values": ["css/reset.css", "css/font-awesome.min.css", "css/responsive.css", "css/main.css"],
-            "before": "        <link rel=\"stylesheet\" type=\"text/css\" href=\"",
-            "after": "\">\n"
+            "before": "    <link rel=\"stylesheet\" type=\"text/css\" href=\"",
+            "after": "\">"
         },
         "scripts": {
             "values": ["scripts/ajax.js", "scripts/main.js"],
-            "before": "<script src=\"",
+            "before": "    <script src=\"",
             "after": "\"></script>"
         },
         "page links": {
             "values": ["Test"],
-            "before": "<div onclick=\"openPage('",
-            "between": "');\">",
+            "before": "            <div class=\"pagelink\" onclick=\"openPage('",
+            "between": ["');\" id=\"", "\">"],
             "after": "</div>"
         },
         "test objects": {
             "values": ["test", "test2"],
-            "before": "<div>",
+            "before": "            <div class=\"message\">",
             "after": "</div>"
         }
     }

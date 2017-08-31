@@ -8,6 +8,7 @@
     const bodyparser = require('body-parser'); // for parsing the http requests
     const regex = require('regex-email'); // for checking if an e-mail address is valid
     const cookieParser = require('cookie-parser'); // for using cookies in express
+    const morgan = require('morgan');
 
     // initialize own modules (notice the './' in the path)
     const indexRouter = require('./routers/pages/index')(__dirname);
@@ -20,18 +21,19 @@
     app.use(bodyparser.urlencoded({ extended: true }));
     app.use(bodyparser.json());
     app.use(cookieParser());
+    app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 
     // use express.static to expose folders to the client
     app.use('/scripts', express.static(path.join(__dirname, 'clientScripts')));
-    app.use('/css', express.static(path.join(__dirname, 'node_modules/font-awesome/css')));
     app.use('/css', express.static(path.join(__dirname, 'styles/core')));
+    app.use('/css', express.static(path.join(__dirname, 'node_modules/font-awesome/css')));
     app.use('/fonts', express.static(path.join(__dirname, 'node_modules/font-awesome/fonts')));
 
     // use our routers for their respective paths
     app.use('/', indexRouter);
 
     app.get('/Test', function(req, res) {
-        res.status(200).end(JSON.stringify({ html: "<h2>Succes!</h2>", js: "", css: "" }));
+        res.status(200).end(JSON.stringify({ title: "Test", html: "<h2>Succes!</h2>", js: "", css: "" }));
     })
 
     // get the port given by the user (is undefined if not present)

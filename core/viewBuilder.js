@@ -7,9 +7,12 @@ module.exports = (function() {
         let result = [];
         for (let key in viewModel) {
             result[key] = viewModel[key].values.map(x =>
-                '' + viewModel[key].before + x +
-                (viewModel[key].between ? viewModel[key].between + x : '') +
-                viewModel[key].after).join('');
+                    '' +
+                    (viewModel[key].before ? viewModel[key].before : '') +
+                    x +
+                    (viewModel[key].between ? viewModel[key].between.map(y => y + x).join('') : '') +
+                    (viewModel[key].after ? viewModel[key].after : ''))
+                .join('\n').trim();
         }
         return result;
     }
