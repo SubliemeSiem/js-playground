@@ -38,7 +38,7 @@ You can run the following commands in your shell to get and run the code:
 $ git clone https://github.com/SubliemeSiem/js-playground.git
 $ cd js-playground
 $ npm install
-$ node index [portnumber]
+$ node start [portnumber]
 ```
 where [portnumber] is the port which you want express to listen to (defaults to 4000 when left blank). To visit the page, browse to http://localhost:[portnumber]. 
 To see the mobile or tablet version, browse to http://[ip]:[portnumber],
