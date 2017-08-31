@@ -1,0 +1,6 @@
+{
+  "viewObjects": {
+    "title": "js playground",
+    "css": "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\">\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/font-awesome.min.css\">\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/responsive.css\">"
+  }
+}

@@ -7,7 +7,7 @@ module.exports = function(rootDir){
     const fs = require('fs');
     const path = require('path');
     const view = fs.readFileSync(path.join(rootDir, 'views/index.html'), 'utf8');
-    const model = require(path.join(rootDir, 'models/index'));
+    const model = require(path.join(rootDir, 'viewModels/index')).viewObjects;
     router.get('/', function(req, res){
         // replace keys in template with values from the model
         //const page = model.reduce((prev, curr) => prev.replace(curr.key, curr.value), view);

@@ -40,6 +40,6 @@ $ cd js-playground
 $ npm install
 $ node index [portnumber]
 ```
-where [portnumber] is the port which you want express to listen to (defaults to 3000). To visit the page, browse to http://localhost:[portnumber]. 
+where [portnumber] is the port which you want express to listen to (defaults to 4000 when left blank). To visit the page, browse to http://localhost:[portnumber]. 
 To see the mobile or tablet version, browse to http://[ip]:[portnumber],
 where [ip] is the ip address of the system running Node.js, using a phone or tablet that is connected to the same network.

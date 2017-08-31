@@ -24,6 +24,7 @@
     // use express.static to expose folders to the client
     app.use('/scripts', express.static(path.join(__dirname, 'clientScripts')));
     app.use('/css', express.static(path.join(__dirname, 'node_modules/font-awesome/css')));
+    app.use('/css', express.static(path.join(__dirname, 'styles/core')));
     app.use('/fonts', express.static(path.join(__dirname, 'node_modules/font-awesome/fonts')));
 
     // use our routers for their respective paths
@@ -33,7 +34,7 @@
     const portArgument = parseInt(process.argv[2]);
     // if we have an integer input, use the absolute value, 
     // otherwise default to port 3000
-    const port = Number.isNaN(portArgument) ? 3000 : Math.abs(portArgument); 
+    const port = Number.isNaN(portArgument) ? 4000 : Math.abs(portArgument); 
     console.log(`Listening on port: ${port}`);
     console.log("Press 'ctrl + c' to quit")
     // let express listen to the port
