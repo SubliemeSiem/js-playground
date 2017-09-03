@@ -27,7 +27,7 @@ const ajax = (function() {
                 // if no contentType is set we use json
                 contentType = contentType || 'application/json';
 
-                xhr = new XMLHttpRequest();
+                const xhr = new XMLHttpRequest();
                 xhr.open('POST', url, true);
                 xhr.setRequestHeader('Content-Type', contentType);
 
@@ -46,11 +46,11 @@ const ajax = (function() {
                 } else if (contentType === 'application/x-www-form-urlendcoded') {
                     // encode data as URI query
                     const query = [];
-                    
+
                     for (const key in data) {
                         query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
                     }
-                    
+
                     xhr.send(encodeURI(query.join('&')));
                 } else {
                     // send data 'as is'

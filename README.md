@@ -10,6 +10,10 @@ A project to play around with *JavaScript* in *Node.js*. Will feature various co
 - [ ] your own middleware
   - [ ] creating it
   - [ ] using it
+- [ ] server-sent events
+  - [ ] set it up
+  - [ ] send from the server
+  - [ ] read from the client
 - [ ] using a "let's encrypt" sll certificate and automatically updating it
 - [ ] js DOM selectors (no jQuery)
 - [ ] AJAX calls without jQuery

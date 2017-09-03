@@ -7,15 +7,20 @@
 </head>
 
 <body>
+    <div id="script-block"></div>
     <div class="row">
-        <div class="col-12 col-m-12 header">...</div>
+        <div class="col-12 col-m-12 header">
+            <span id="page-title">
+                {{title}}
+            </span>
+        </div>
     </div>
-    <div class="row">
+    <div class="row main-body">
         <div class="col-2 col-m-2 left sidebar">
             {{page links}}
         </div>
         <div class="col-7 col-m-7 content" id="main-content">
-
+            {{page content}}
         </div>
         <div class="col-3 col-m-3 right sidebar">
             {{test objects}}

@@ -9,20 +9,23 @@
             "after": "\">"
         },
         "scripts": {
-            "values": ["scripts/ajax.js", "scripts/main.js"],
+            "values": ["scripts/ajax.js", "scripts/main.js", "scripts/sse-ie.js", "scripts/sse.js"],
             "before": "    <script src=\"",
             "after": "\"></script>"
         },
         "page links": {
             "values": ["Test"],
             "before": "            <div class=\"pagelink\" onclick=\"openPage('",
-            "between": ["');\" id=\"", "\">"],
+            "between": ["', true);\" id=\"", "\">"],
             "after": "</div>"
         },
         "test objects": {
-            "values": ["test", "test2"],
+            "values": ["<h1>test</h1>Stories/warnings/whatever coming from a database.", "test2"],
             "before": "            <div class=\"message\">",
             "after": "</div>"
+        },
+        "page content": {
+            "values": ["<div><h1>Home</h1>This content will eventually come out of a database.</div><div>test</div>"]
         }
     }
 }
