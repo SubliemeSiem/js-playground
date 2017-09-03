@@ -56,7 +56,8 @@
 
     onPageLoad(function() {
         const page = window.location.pathname.slice(1);
-        history.replaceState({ page: page }, "js playground");
+        history.replaceState({ page: page }, window.title);
+
         document.querySelectorAll(`.pagelink`).forEach(function(x) {
             if (x.id.toLowerCase() === page) {
                 x.classList.toggle("active", true);

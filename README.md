@@ -4,25 +4,33 @@ A project to play around with *JavaScript* in *Node.js*. Will feature various co
 
 ## Contents:
 - [x] express 
-  - [x] [set up](index.js)
+  - [x] [set up](start.js)
   - [x] [routers](routers/))
-- [x] [using middleware](index.js)
+- [x] [using middleware](start.js)
 - [ ] your own middleware
-  - [ ] creating it
-  - [ ] using it
+  - [ ] [creating it](core/sse,js)
+  - [ ] [using it](start.js)
 - [ ] server-sent events
-  - [ ] set it up
+  - [x] set it up
+    - [x] [client](clientScripts/sse.js)
+    - [x] [ie polyfill](clientScripts/sse-ie.js)
+    - [x] [server](core/sse.js)
   - [ ] send from the server
   - [ ] read from the client
 - [ ] using a "let's encrypt" sll certificate and automatically updating it
 - [ ] js DOM selectors (no jQuery)
+  - [ ] by id
+  - [ ] by tag
+  - [ ] by class
+  - [ ] first in a specified query
+  - [ ] all in a specified query
 - [ ] AJAX calls without jQuery
   - [x] [set up script](clientScripts/ajax.js)
-  - [ ] use
-- [x] [using express static folders to host client js files](index.js)
+  - [x] [use](clientScripts/main.js)
+- [x] [using express static folders to host client js files](start.js)
 - [ ] dynamically create a script block and serve it through a route as a file
 - [ ] using express routers to route http requests:
-  - [x] [get](routers/index.js)
+  - [x] [get](routers/pages/index.js)
   - [ ] post
 - [ ] combining AJAX calls with express routing
   - [ ] get
@@ -33,19 +41,25 @@ A project to play around with *JavaScript* in *Node.js*. Will feature various co
     - [ ] server-side route
 - [ ] responsive css
   - [x] [stylesheet](styles/core/responsive.css)
-  - [ ] HTML views using responsive CSS
+  - [x] [HTML views using responsive CSS](views)
 - [ ] JSON models
 - [ ] mongodb
 - [ ] Promises
   - [x] [create](clientScripts/ajax.js)
   - [ ] use
-- [x] [map](routers/index.js)
+- [x] [map](routers/pages/index.js)
 - [ ] reduce
 - [ ] error handling
 - [ ] logging
 - [ ] minify and concatenate client scripts and style sheets
-- [ ] add web app manifest
-- [ ] add a favicon.ico
+- [x] [add web app manifest](public/manifest.json)
+- [x] [add a favicon.ico](start.js)
+- [x] manipulate browser history
+  - [x] [create history entries](clientScripts/main.js)
+  - [x] [recover history entries](clientScripts/main.js)
+- [x] add a service worker (for offline caching)
+  - [x] [worker script](public/serviceworker.js)
+  - [x] [installation](clientScripts/main.js)
 
 ## Running the code
 
