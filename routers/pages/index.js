@@ -9,13 +9,22 @@ module.exports = function(rootDir) {
     const viewBuilder = require(path.join(rootDir, 'core/viewBuilder'));
 
     router.get('/', function(req, res) {
-        // replace keys in template with values from the model
-        //const page = model.reduce((prev, curr) => prev.replace(curr.key, curr.value), view);
-        const page = viewBuilder.build(view, model);
-        if (page) {
-            res.status(200).send(page);
+        if (req.query.onlyContent) {
+            res.status(200).end(JSON.stringify({
+                title: 'js-playground',
+                page: 'Index',
+                html: viewBuilder.parseContent(model),
+                js: '',
+                css: ''
+            }));
         } else {
-            res.status(404).end();
+            // replace keys in template with values from the model
+            const page = viewBuilder.build(view, model);
+            if (page) {
+                res.status(200).send(page);
+            } else {
+                res.status(404).end();
+            }
         }
     });
 

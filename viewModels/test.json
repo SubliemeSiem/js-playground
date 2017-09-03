@@ -1,7 +1,7 @@
 {
     "viewObjects": {
         "title": {
-            "values": ["js playground"]
+            "values": ["Test"]
         },
         "css": {
             "values": ["css/reset.css", "css/font-awesome.min.css", "css/responsive.css", "css/main.css"],
@@ -25,7 +25,7 @@
             "after": "</div>"
         },
         "page content": {
-            "values": ["<div><h1>Home</h1>This content will eventually come out of a database.</div><div>test</div>"]
+            "values": ["<div onclick='ajax.post(\"/Test\");'>Succes!</div>"]
         }
     }
 }

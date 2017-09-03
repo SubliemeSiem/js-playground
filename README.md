@@ -43,6 +43,9 @@ A project to play around with *JavaScript* in *Node.js*. Will feature various co
 - [ ] reduce
 - [ ] error handling
 - [ ] logging
+- [ ] minify and concatenate client scripts and style sheets
+- [ ] add web app manifest
+- [ ] add a favicon.ico
 
 ## Running the code
 

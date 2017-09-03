@@ -9,6 +9,7 @@
     const regex = require('regex-email'); // for checking if an e-mail address is valid
     const cookieParser = require('cookie-parser'); // for using cookies in express
     const morgan = require('morgan');
+    const favicon = require('serve-favicon');
 
     // initialize own modules (notice the './' in the path)
     const sse = require('./core/sse');
@@ -18,6 +19,7 @@
     const app = express(); // initialize express
 
     // initialize middleware
+    app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
     app.use(helmet());
     app.use(bodyparser.urlencoded({ extended: true }));
     app.use(bodyparser.json());
@@ -28,25 +30,37 @@
     app.use(sse.middleware);
 
     // use express.static to expose folders to the client
+    app.use('/', express.static(path.join(__dirname, 'public')));
     app.use('/scripts', express.static(path.join(__dirname, 'clientScripts')));
     app.use('/css', express.static(path.join(__dirname, 'styles/core')));
     app.use('/css', express.static(path.join(__dirname, 'node_modules/font-awesome/css')));
     app.use('/fonts', express.static(path.join(__dirname, 'node_modules/font-awesome/fonts')));
 
+    app.all('/', function(req, res) {
+        res.redirect('/index');
+    })
+
     // use our routers for their respective paths
-    app.use('/', indexRouter);
+    app.use('/index', indexRouter);
 
     // TEMP temporary routes for testing purposes
-    app.get('/Test', function(req, res) {
-        res.status(200).end(JSON.stringify({ title: "Test", html: "<div onclick='ajax.post(\"/Test\");'>Succes!</div>", js: "", css: "" }));
-    });
-
     const viewBuilder = require('./core/viewBuilder');
-    app.get('/index', function(req, res) {
-        res.status(200).end(JSON.stringify({
-            title: "js-playground",
-            html: viewBuilder.parseContent(require('./viewModels/main'))
-        }));
+    app.get('/test', function(req, res) {
+        if (req.query.onlyContent) {
+            res.status(200).end(JSON.stringify({ title: "Test", page: "test", html: "<div onclick='ajax.post(\"/Test\");'>Succes!</div>", js: "", css: "" }));
+        } else {
+            const fs = require('fs');
+            const path = require('path');
+            const view = fs.readFileSync('./views/main.html', 'utf8');
+            const model = require('./viewModels/test').viewObjects;
+
+            const page = viewBuilder.build(view, model);
+            if (page) {
+                res.status(200).send(page);
+            } else {
+                res.status(404).end();
+            }
+        }
     });
 
     const tmp = [];
@@ -59,7 +73,7 @@
     app.post('/Test', function(req, res) {
         tmp.push(x)
         x += 1;
-        sse.updateConnections(tmp);
+        sse.updateConnections({ action: "new post", data: tmp });
         res.sendStatus(200);
     })
 

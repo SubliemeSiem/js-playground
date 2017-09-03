@@ -1,6 +1,6 @@
     function openPage(page, setHistory) {
         // get the response of the route using AJAX
-        ajax.get(`/${page}`).then(function(succes) {
+        ajax.get(`/${page}`, { onlyContent: true }).then(function(succes) {
                 // parse the JSON string to an object
                 const response = JSON.parse(succes.response);
 
@@ -9,19 +9,25 @@
                 document.getElementById('page-title').innerText = response.title;
                 document.getElementById('main-content').innerHTML = response.html;
                 if (setHistory) {
-                    history.pushState({ page: response.title }, response.title);
+                    history.pushState({ page: response.page }, response.title, `/${response.page}`);
                 }
-                const pageButton = document.getElementById(page);
-                if (pageButton) {
-                    pageButton.classList.toggle("active", true);
-                }
-                document.querySelectorAll(`.pagelink:not(#${page})`).forEach(x => x.classList.toggle("active", false));
+                setPageLinks(page);
             },
             function(failure) {
                 alert(failure);
             }).catch(function(error) {
             alert(error);
         })
+    }
+
+    function setPageLinks(page) {
+        document.querySelectorAll(`.pagelink`).forEach(function(x) {
+            if (x.id.toLowerCase() === page) {
+                x.classList.toggle("active", true);
+            } else {
+                x.classList.toggle("active", false);
+            }
+        });
     }
 
     function onPageLoad(newFunction) {
@@ -43,8 +49,52 @@
 
     window.addEventListener('popstate', function(e) {
         if (e.state) {
+            console.log(e.state);
             openPage(e.state.page);
         }
     });
 
-    onPageLoad(history.replaceState({ page: "index" }, "js playground"));
+    onPageLoad(function() {
+        const page = window.location.pathname.slice(1);
+        history.replaceState({ page: page }, "js playground");
+        document.querySelectorAll(`.pagelink`).forEach(function(x) {
+            if (x.id.toLowerCase() === page) {
+                x.classList.toggle("active", true);
+            } else {
+                x.classList.toggle("active", false);
+            }
+        });
+    });
+
+    (function() {
+        function waitUntilInstalled(registration) {
+            return new Promise(function(resolve, reject) {
+                if (registration.installing) {
+                    // If the current registration represents the "installing" service worker, then wait
+                    // until the installation step (during which the resources are pre-fetched) completes
+                    // to display the file list.
+                    registration.installing.addEventListener('statechange', function(e) {
+                        if (e.target.state == 'installed') {
+                            resolve();
+                        } else if (e.target.state == 'redundant') {
+                            reject();
+                        }
+                    });
+                } else {
+                    // Otherwise, if this isn't the "installing" service worker, then installation must have been
+                    // completed during a previous visit to this page, and the resources are already pre-fetched.
+                    // So we can show the list of files right away.
+                    resolve();
+                }
+            });
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('serviceworker.js', { scope: './' })
+                .then(waitUntilInstalled)
+                .then(console.log('installed service worker'))
+                .catch(function(error) {});
+        } else {
+            // The current browser doesn't support service workers.
+        }
+    })();

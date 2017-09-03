@@ -20,6 +20,11 @@ module.exports = (function() {
             res.sseSetup()
             res.sseSend(data)
             connections.push(res)
+
+            // prevent err_incomplete_chunked_encoding
+            setInterval(function() {
+                res.sseSend({ action: "keep-alive" });
+            }, 60000)
         },
         updateConnections: function(data) {
             for (let i = 0; i < connections.length; i += 1) {

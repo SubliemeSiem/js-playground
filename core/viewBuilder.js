@@ -23,10 +23,10 @@ module.exports = (function() {
     const parseContent = function(viewModel) {
         return viewModel['page content'].values.map(x =>
                 '' +
-                (viewModel[key].before ? viewModel[key].before : '') +
+                (viewModel['page content'].before ? viewModel['page content'].before : '') +
                 x +
-                (viewModel[key].between ? viewModel[key].between.map(y => y + x).join('') : '') +
-                (viewModel[key].after ? viewModel[key].after : ''))
+                (viewModel['page content'].between ? viewModel['page content'].between.map(y => y + x).join('') : '') +
+                (viewModel['page content'].after ? viewModel['page content'].after : ''))
             .join('\n').trim();
     }
 
