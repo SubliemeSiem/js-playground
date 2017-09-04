@@ -18,6 +18,7 @@
   "homepage": "https://github.com/SubliemeSiem/js-playground#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
     "font-awesome": "^4.7.0",

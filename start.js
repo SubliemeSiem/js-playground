@@ -3,6 +3,7 @@
 
     // initialize npm modules (no need for the .js extension)
     const express = require('express'); // for routing
+    const compression = require('compression'); // for gzip compression
     const helmet = require('helmet'); // for more secure http headers
     const path = require('path'); // for joining path strings
     const bodyparser = require('body-parser'); // for parsing the http requests
@@ -19,6 +20,7 @@
     const app = express(); // initialize express
 
     // initialize middleware
+    app.use(compression());
     app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
     app.use(helmet());
     app.use(bodyparser.urlencoded({ extended: true }));
@@ -37,15 +39,15 @@
     app.use('/fonts', express.static(path.join(__dirname, 'node_modules/font-awesome/fonts')));
 
     app.all('/', function(req, res) {
-        res.redirect('/index');
+        res.redirect('/index.html');
     })
 
     // use our routers for their respective paths
-    app.use('/index', indexRouter);
+    app.use('/index.html', indexRouter);
 
     // TEMP temporary routes for testing purposes
     const viewBuilder = require('./core/viewBuilder');
-    app.get('/test', function(req, res) {
+    app.get('/test.html', function(req, res) {
         if (req.query.onlyContent) {
             res.status(200).end(JSON.stringify({ title: "Test", page: "test", html: "<div onclick='ajax.post(\"/Test\");'>Succes!</div>", js: "", css: "" }));
         } else {
@@ -70,14 +72,26 @@
         sse.setupConnection(req, res, tmp);
     });
 
-    app.post('/Test', function(req, res) {
+    app.post('/test.html', function(req, res) {
         tmp.push(x)
         x += 1;
         sse.updateConnections({ action: "new post", data: tmp });
         res.sendStatus(200);
-    })
-
+    });
     // TEMP
+
+    // catch routing errors
+    app.get('*', function(req, res, next) {
+        throw Error("404");
+    });
+
+    app.use(function(err, req, res, next) {
+        if (err.message === "404") {
+            res.status(404).send(require('./errorPages/404'));
+        } else {
+            next(err);
+        }
+    });
 
     // get the port given by the user (is undefined if not present)
     const portArgument = parseInt(process.argv[2]);

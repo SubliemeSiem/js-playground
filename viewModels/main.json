@@ -4,9 +4,9 @@
             "values": ["js playground"]
         },
         "css": {
-            "values": ["css/reset.css", "css/font-awesome.min.css", "css/responsive.css", "css/main.css"],
+            "values": ["css/font-awesome.min.css"],
             "before": "    <link rel=\"stylesheet\" type=\"text/css\" href=\"",
-            "after": "\" media=\"screen, handheld\">"
+            "after": "\" media=\"none\" onload=\"if(media!=='all')media='all'\" >"
         },
         "scripts": {
             "values": ["scripts/ajax.js", "scripts/main.js", "scripts/sse-ie.js", "scripts/sse.js", "serviceworker.js"],
@@ -16,7 +16,7 @@
         "page links": {
             "values": ["Index", "Test"],
             "before": "            <div class=\"pagelink\" onclick=\"openPage('",
-            "between": ["'.toLowerCase(), true);\" id=\"", "\">"],
+            "between": [".html'.toLowerCase(), true);\" id=\"", "\">"],
             "after": "</div>"
         },
         "test objects": {

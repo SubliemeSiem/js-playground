@@ -4,9 +4,9 @@
             "values": ["Test"]
         },
         "css": {
-            "values": ["css/reset.css", "css/font-awesome.min.css", "css/responsive.css", "css/main.css"],
+            "values": ["css/font-awesome.min.css"],
             "before": "    <link rel=\"stylesheet\" type=\"text/css\" href=\"",
-            "after": "\" media=\"screen, handheld\">"
+            "after": "\" media=\"none\" onload=\"if(media!=='all')media='all'\" >"
         },
         "scripts": {
             "values": ["scripts/ajax.js", "scripts/main.js", "scripts/sse-ie.js", "scripts/sse.js", "serviceworker.js"],
@@ -25,7 +25,7 @@
             "after": "</div>"
         },
         "page content": {
-            "values": ["<div onclick='ajax.post(\"/Test\");'>Succes!</div>"]
+            "values": ["<div onclick='ajax.post(\"/test.html\");'>Succes!</div>"]
         }
     }
 }

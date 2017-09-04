@@ -1,13 +1,14 @@
-<html lang="en">
+module.exports = `<html lang="en">
 
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <title>{{title}}</title>
-    {{css}}
+    <title>404</title>
     <link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
     <meta name="theme-color" content="#5d1d1d"></meta>
-    {{scripts}}
+    <script src="scripts/ajax.js" async></script>
+    <script src="scripts/main.js" async></script>
+    <script src="serviceworker.js" async></script>
     <style>
         * {
             outline: none;
@@ -380,21 +381,23 @@
     <div class="row">
         <div class="col-12 col-m-12 header">
             <span id="page-title">
-                {{title}}
+                404
             </span>
         </div>
     </div>
     <div class="row main-body">
         <div class="col-2 col-m-2 left sidebar">
-            {{page links}}
+            <div class="pagelink" onclick="openPage('index.html', true);" id="Index">Index</div>
+            <div class="pagelink" onclick="openPage('test.html', true);" id="Test">Test</div>
         </div>
         <div class="col-7 col-m-7 content" id="main-content">
-            {{page content}}
+            <div>
+                404: The requested page was not found.
+            </div>
         </div>
         <div class="col-3 col-m-3 right sidebar">
-            {{test objects}}
         </div>
     </div>
 </body>
 
-</html>
+</html>`;

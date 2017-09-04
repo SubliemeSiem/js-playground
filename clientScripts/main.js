@@ -91,11 +91,16 @@
         }
 
         if ('serviceWorker' in navigator) {
+            // navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            //     for (let registration of registrations) {
+            //         registration.unregister()
+            //     }
+            // });
             navigator.serviceWorker.register('serviceworker.js', { scope: './' })
                 .then(waitUntilInstalled)
-                .then(console.log('installed service worker'))
                 .catch(function(error) {});
         } else {
-            // The current browser doesn't support service workers.
+            console.log('nope')
+                // The current browser doesn't support service workers.
         }
     })();

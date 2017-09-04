@@ -11,15 +11,29 @@ module.exports = (function() {
             }
 
             res.sseSend = function(data) {
-                res.write("data: " + JSON.stringify(data) + "\n\n");
+                res.write("data: " + JSON.stringify(data) + "\r\n\r\n");
+                res.flush();
             }
 
             next();
         },
         setupConnection: function(req, res, data) {
-            res.sseSetup()
-            res.sseSend(data)
-            connections.push(res)
+            res.sseSetup();
+            res.sseSend(data);
+            connections.push(res);
+
+            req.on("close", function() {
+                // request closed unexpectedly
+                if (connections.indexOf(res) >= 0) {
+                    connections.splice(connections.indexOf(res), 1);
+                }
+            });
+
+            req.on("end", function() {
+                if (connections.indexOf(res) >= 0) {
+                    connections.splice(connections.indexOf(res), 1);
+                }
+            });
 
             // prevent err_incomplete_chunked_encoding
             setInterval(function() {

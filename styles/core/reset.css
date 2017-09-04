@@ -132,9 +132,6 @@ table {
     border-spacing: 0;
 }
 
-
-/* PLACEHOLDERS */
-
 *::-webkit-input-placeholder {
     font-size: .8rem;
     color: #a0a0a0;
